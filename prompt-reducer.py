@@ -40,8 +40,12 @@ def preprocess_text(text):
     # Create a lemmatizer object for English
     lemmatizer = WordNetLemmatizer()
     
-    # Load the stopwords dataset for English
-    stop_words = set(stopwords.words('english'))    
+    if language == 'English':
+        # Load the stopwords dataset for English
+        stop_words = set(stopwords.words('english'))
+    elif language == 'Portuguese (Brasil)':
+        # Load the stopwords dataset for Portuguese
+        stop_words = set(stopwords.words('portuguese'))     
 
     # Split the input text into words (tokenization)
     words = text.split()
@@ -80,6 +84,8 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader('Insert your prompt here:')
     text = st.text_area('Insert your prompt here:', label_visibility="collapsed", height=300)
+    language = st.selectbox('Choose your Language:',
+    ('English', 'Portuguese (Brasil)'))
     button = st.button('Reduce Prompt ✨')
 
 with col2:
