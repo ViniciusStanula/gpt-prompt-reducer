@@ -10,6 +10,28 @@ The app operates in two main cleaning phases:
 * Eliminating stop words, common language words like "the," "is," and "and," from the text.
 * Lemmatizing verbs to simplify and standardize verb forms, enhancing comprehension for models like GPT.
 
+Let's start with an example using the description of the game Baldur’s Gate 3, sourced from Wikipedia:
+
+> Baldur’s Gate 3 is a captivating role-playing video game featuring both single-player and cooperative multiplayer modes. Players have the freedom to create one or more characters and assemble a party, including several pre-generated characters, to delve into the game's rich narrative.
+
+When processed through the Tokenizer, this original text consumes 49 tokens.
+
+After applying our prompt reduction, the text becomes:
+
+> Baldur's Gate 3 role-playing video game, single-player, cooperative multiplayer element. Players create one character, form a party with pre-generated characters, explore the game's story.
+
+With this transformation, we've successfully reduced the token count from 49 to 28 tokens, marking a remarkable 42.86% reduction in token usage.
+
+## How to Use It
+
+1. **Read the Blog Post**: Explore a detailed guide on how I reduced OpenAI costs and token usage by 40% with Python. [Read the Blog Post](https://viniciusstanula.com/en/blog/how-i-reduced-openai-costs-and-token-usage-by-40-with-python/)
+
+2. **Streamlit App**: Easily reduce your prompts using the Streamlit web application. [Try the Streamlit App](https://gpt-prompt-reducer.streamlit.app/)
+
+3. **Manual Integration**: If you prefer manual integration, you can copy the `preprocess_text` function from the `prompt-reducer.py` file and use it in your own projects.
+
+Feel free to choose the method that suits your needs best and optimize your token usage with OpenAI!
+
 ## ☕Use Cases:
 
 * Token reduction is particularly beneficial when using OpenAI's API, as it charges based on token count.
